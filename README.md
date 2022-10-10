@@ -24,7 +24,7 @@ For this project the following types are being investigated in more details for 
 | Type. |Description | Number of Stratification |
 |:---: |:-------------: | :-------------: |
 |Low Complexity|Regions with different types and sizes of low complexity sequence, e.g., homopolymers, STRs, VNTRs and other locally repetitive sequences. | GRCh37 (28), GRCh38 (28), CHM13v2.0 (27)|
-|Segemntatl Duplication | Regions with segmental duplications or regions with non-trivial self-chain alignments. |GRCh37 (9), GRCh38 (9), CHM13v2.0 (2)  |
+|Segmental Duplication | Regions with segmental duplications or regions with non-trivial self-chain alignments. |GRCh37 (9), GRCh38 (9), CHM13v2.0 (2)  |
 |GC Content|Regions with different ranges (%) of GC content.| GRCh37 (14) and GRCh38 (14)|
 |TR| **#TODO** | **#TODO** |
 
@@ -33,14 +33,14 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 
 ## Flowchart 
 
-**#TODO**
+![Flowchart](./doc/img/Flowchart.drawio.png)
 
 ## Tasks
 | No. |Task  | Responsible Person |
 |:---: |:-------------: | :-------------: |
 |S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|
 |S2. | **GC content for the CHM13v2** | Eddy|
-|S3. | **Gene coding sequence for CHM13v2** | Pilar|
+|S3. | **Gene coding sequence for CHM13v2** | Divya and Pilar|
 |S4. | **Lift over Other Difficult regions to CHM13v2** ||
 |S5. | **Tandem Repeat (TR) Feature** | Bharati, Divya and Nathan|
 |S6. | **Distribution of variants in Tandem repeats and homopolymer** | Nathan|
