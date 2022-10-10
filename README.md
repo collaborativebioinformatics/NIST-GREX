@@ -36,13 +36,22 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 ![Flowchart](./doc/img/Flowchart.drawio.png)
 
 ## Tasks
+### Stratification BED file generation
 | No. |Task  | Responsible Person |
 |:---: |:-------------: | :-------------: |
 |S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|
 |S2. | **GC content for the CHM13v2** | Eddy|
 |S3. | **Gene coding sequence for CHM13v2** | Divya and Pilar|
 |S4. | **Lift over Other Difficult regions to CHM13v2** ||
+
+### Feature engineering
+| No. |Task  | Responsible Person |
+|:---: |:-------------: | :-------------: |
 |S5. | **Tandem Repeat (TR) Feature** | Bharati, Divya and Nathan|
+
+### Exploratory analysis
+| No. |Task  | Responsible Person |
+|:---: |:-------------: | :-------------: |
 |S6. | **Distribution of variants in Tandem repeats and homopolymer** | Nathan|
 |S7. | **Distribution of adjacent variants** | Sina|
 |S8. | **Coverage of variants from a bam file** | Philippe|
