@@ -19,7 +19,7 @@ Resource development process described in manuscripts and pre-prints
 ## Stratification
 In addition to the reference genome, GIAB also provides stratification files in the form of BED files. These files are intended to be used to evaluate the behavior of bioinformatic tools, in for example difficult regions on the human genome, in a standardized way. The stratification files can be divided into seven types: Low Complexity, Functional Technically Difficult, Genome Specific, Functional Regions, GC content, mappability, Other Difficult, Segmental Duplications, Union, Ancestry and XY.
 
-For this project the following types are being investigated in more details for the mappability of prediction onto the genome:
+For this project the following types are being investigated in more details for the mappability of prediction onto T2T CHM13 and GRCh38:
 
 | Type. |Description | Number of Stratification |
 |:---: |:-------------: | :-------------: |
