@@ -1,7 +1,7 @@
 # Mappability for CHM13v2.0 reference genome
 Pilar Alvarez Jerez \
 Last update: October 11, 2022 \
-Based on https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md
+Based on [GIAB CRCh38 Stratifications](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md)
 ## Goal: 
 Generate T2T-CHM13v2.0 stratification BED file similar to what exists for GRCh38. Goal is to end with BED file with regions of low mappability per chromosome based on two stringency levels.
 
@@ -24,16 +24,16 @@ First extract chromosome from CHM13v2.0 fasta file
 
 Download and install bedops and GEM binaries in your directory
 
-Links to both binaries can be found here:
-https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md
+[Links](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md) to both binaries
+
 
 	# On $MAIN directory
 	tar jxvf bedops_linux_x86_64-v2.4.41.tar.bz2
 	tar jxvf GEM-binaries-Linux-x86_64-core_i3-20130406-045632.tbz2
 
 ### Upload first GEM script to directory
-https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/run_GEM_mappability_GRCh38.sh
-Renamed as gem_mappability.sh \
+[Original script](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/run_GEM_mappability_GRCh38.sh)
+Renamed as [gem_mappability.sh](https://github.com/collaborativebioinformatics/NIST-genomic-features/blob/main/S1-mappability/code/gem_mappability.sh)for this project \
 What to alter in script:
 - Main variable paths/names
 - l, m, e parameters
@@ -47,16 +47,16 @@ Note, running twice.
 Running the script generates raw mappability files.
 Example output from script
 
-- chm13_chr21_gemmap_l100_m2_e1_name_clean.sizes
-- chm13_chr21_gemmap_l100_m2_e1_name_clean.wig
-- **chm13_chr21_gemmap_l100_m2_e1_name_uniq.bed**
-- **chm13_chr21_gemmap_l100_m2_e1.bed**
-- chm13_chr21_gemmap_l100_m2_e1.mappability 
-- chm13_chr21_gemmap_l100_m2_e1.sizes
-- chm13_chr21_gemmap_l100_m2_e1.wig
+- `chm13_chr21_gemmap_l100_m2_e1_name_clean.sizes`
+- `chm13_chr21_gemmap_l100_m2_e1_name_clean.wig`
+- `**chm13_chr21_gemmap_l100_m2_e1_name_uniq.bed**`
+- `**chm13_chr21_gemmap_l100_m2_e1.bed**`
+- `chm13_chr21_gemmap_l100_m2_e1.mappability`
+- `chm13_chr21_gemmap_l100_m2_e1.sizes`
+- `chm13_chr21_gemmap_l100_m2_e1.wig`
 
 Interested in bed files for now
-chm13_chr21_gemmap_l100_m2_e1.bed
+`chm13_chr21_gemmap_l100_m2_e1.bed`
  Has all the region calls with their different mappability score
 
 	head chm13_chr21_gemmap_l100_m2_e1.bed
@@ -69,7 +69,7 @@ chm13_chr21_gemmap_l100_m2_e1.bed
 	chr21	50	64	id-7	0.166667
 	chr21	64	65	id-8	0.333333
 
-chm13_chr21_gemmap_l100_m2_e1_uniq.bed
+`chm13_chr21_gemmap_l100_m2_e1_uniq.bed`
 Only contains regions with unique mappability
 
 	head chm13_chr21_gemmap_l100_m2_e1_uniq.bed
@@ -85,10 +85,10 @@ Using the two uniq BED files to run second script
 
 ### Upload sorting script
 
-https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/run_GEM_mappability_sort_GRCh38.sh
+[Original script](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/run_GEM_mappability_sort_GRCh38.sh)
 
 Need to change initial variable paths
-Renamed union_chr21_test.sh for myself
+Renamed [union_chr21_test.sh](https://github.com/collaborativebioinformatics/NIST-genomic-features/blob/main/S1-mappability/code/union_chr21_test.sh)
 
 Create files needed for script
 
@@ -129,7 +129,8 @@ Quick look into `chm13_chr21_lowmappabilityall.bed.gz`
 	chr21	9194	9449
 	chr21	15466	15721
 
-
+All example chr21 files can be found in [code folder]
+(https://github.com/collaborativebioinformatics/NIST-genomic-features/tree/main/S1-mappability/code)
 ## Next steps
 Having trouble running scripts for whole genome
 Debugging if error is coming from first script or second
