@@ -1,0 +1,53 @@
+rule download_strat:
+    output:
+        "resources/strats/all_tr_hp.bed.gz",
+    params:
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/genome-stratifications/v3.1/GRCh38/LowComplexity/GRCh38_AllTandemRepeatsandHomopolymers_slop5.bed.gz",
+    shell:
+        """
+        curl -sS -o {output} {params.url}
+        """
+
+rule download_vcf:
+    output:
+        "resources/vcf/HG002_v4.2.1.vcf",
+    params:
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
+    shell:
+        """
+        curl -sS -o {output} {params.url}
+        """
+
+rule vcf_to_bed:
+    input:
+        rules.download_vcf.output
+    output:
+        "results/vcf/HG002_v4.2.1.bed",
+    shell:
+        """
+        gunzip {input} -c | \
+        grep -v '^#' | \
+        cut -f1,2,4,5 | \
+        grep -v ',' | \
+        awk -F '\t' 'BEGIN{{OFS="\t"}} {{ print $1, $2, $2 + length($3), length($4) - length($3) }}' \
+        > {output}
+        """
+
+rule intersect_regions:
+    input:
+        vcf=rules.vcf_to_bed.output,
+        strat=rules.download_strat.output
+    output:
+        "results/bed/intersected.bed"
+    conda:
+        "envs/bedtools.yml"
+    shell:
+        """
+        gunzip {input.strat} -c | \
+        bedtools intersect -a - -b {input.vcf} -loj \
+        > {output}
+        """
+
+rule all:
+    input:
+        rules.intersect_regions.output
