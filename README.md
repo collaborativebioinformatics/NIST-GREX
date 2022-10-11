@@ -37,21 +37,21 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 
 ## Tasks
 ### Stratification BED file generation
-| No. |Task  | Responsible Person |
-|:---: |:-------------: | :-------------: |
-|S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|
-|S2. | **GC content for the CHM13v2** | Eddy|
-|S3. | **Gene coding sequence for CHM13v2** | Divya|
-|S4. | **Lift over Other Difficult regions to CHM13v2** ||
+| No. |Task  | Responsible Person | Link|
+|:---: |:-------------: | :-------------: | :---: |
+|S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|[S1](./S1-mappability)|
+|S2. | **GC content for the CHM13v2** | Eddy|[S2](./S2-gc-content)|
+|S3. | **Gene coding sequence for CHM13v2** | Divya|[S3](./S3-gene-coding)|
+|S4. | **Lift over Other Difficult regions to CHM13v2** ||[S4](./S4-other-difficult)|
 
 ### Feature engineering
-| No. |Task  | Responsible Person |
-|:---: |:-------------: | :-------------: |
-|S5. | **Tandem Repeat (TR) Feature** | Bharati, Divya and Nathan|
+| No. |Task  | Responsible Person | Link|
+|:---: |:-------------: | :-------------: | :---: |
+|S5. | **Tandem Repeat (TR) Feature** | Bharati, Divya and Nathan|[S5](./S5-tr-adotto)|
 
 ### Exploratory analysis
-| No. |Task  | Responsible Person |
-|:---: |:-------------: | :-------------: |
-|S6. | **Distribution of variants in Tandem repeats and homopolymer** | Nathan|
-|S7. | **Distribution of adjacent variants** | Sina|
-|S8. | **Coverage of variants from a bam file** | Philippe|
+| No. |Task  | Responsible Person | Link|
+|:---: |:-------------: | :-------------: | :---: |
+|S6. | **Distribution of variants in Tandem repeats and homopolymer** | Nathan|[S6](./S6-tr-distribution)|
+|S7. | **Distribution of adjacent variants** | Sina| [S7](./S7-adjacent-distribution)|
+|S8. | **Coverage of variants from a bam file** | Philippe| [S8](./S8-variant-coverage) |
