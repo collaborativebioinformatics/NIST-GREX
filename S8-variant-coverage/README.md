@@ -30,4 +30,11 @@ python s8 coverage.per-base.bed.gz variants.vcf
 ```
 
 ### Results 
-TODO
+
+Bam: HG002.hiseqx.pcr-free.40x.dedup.grch38.bam
+VCF: HG002.hiseqx.pcr-free.40x.deepvariant-v1.0.grch38.vcf.gz
+Results for chr22:
+> **Note:** For this run, the coverage with binsize of 10 was used! (Update will follow)
+
+![coverage for variant](./img/mean_coverage_grch38_covbin_10.png)
+
