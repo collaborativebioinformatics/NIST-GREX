@@ -18,3 +18,5 @@ We start with a [VCF file ](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/
 ### Histogram of genomic distance between variants 
 ![Histogram of genomic distance between variants](./data/hist_chrs_variant_distance.jpg)
 
+### Histogram of allele size 
+![Histogram of allele size ](./data/hist_chrs_variant_size.jpg)
