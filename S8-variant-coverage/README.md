@@ -12,6 +12,7 @@ For the extraction of the coverage Mosdepth is bing used.
 - Output:
   - plots with the coverage mapped to the variant call.
 
+![S8 Pipeline](./img/Hackerthon22_S8.drawio.png)
 
 
 ### Mosdepth
@@ -27,5 +28,3 @@ The S8 pipeline maps the mean coverage for each variant in the .vcf file and out
 ```BASH
 python s8 coverage.per-base.bed.gz variants.vcf
 ```
-
-![S8 Pipeline](./img/Hackerthon22_S8.drawio.png)
