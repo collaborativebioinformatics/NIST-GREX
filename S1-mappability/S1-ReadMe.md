@@ -129,8 +129,7 @@ Quick look into `chm13_chr21_lowmappabilityall.bed.gz`
 	chr21	9194	9449
 	chr21	15466	15721
 
-All example chr21 files can be found in [code folder]
-(https://github.com/collaborativebioinformatics/NIST-genomic-features/tree/main/S1-mappability/code)
+All example chr21 files can be found in [code folder](https://github.com/collaborativebioinformatics/NIST-genomic-features/tree/main/S1-mappability/code)
 ## Next steps
 Having trouble running scripts for whole genome
 Debugging if error is coming from first script or second
