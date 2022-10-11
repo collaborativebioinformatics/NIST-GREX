@@ -49,8 +49,8 @@ Example output from script
 
 - `chm13_chr21_gemmap_l100_m2_e1_name_clean.sizes`
 - `chm13_chr21_gemmap_l100_m2_e1_name_clean.wig`
-- `**chm13_chr21_gemmap_l100_m2_e1_name_uniq.bed**`
-- `**chm13_chr21_gemmap_l100_m2_e1.bed**`
+- **`chm13_chr21_gemmap_l100_m2_e1_name_uniq.bed`**
+- **`chm13_chr21_gemmap_l100_m2_e1.bed**`**
 - `chm13_chr21_gemmap_l100_m2_e1.mappability`
 - `chm13_chr21_gemmap_l100_m2_e1.sizes`
 - `chm13_chr21_gemmap_l100_m2_e1.wig`
