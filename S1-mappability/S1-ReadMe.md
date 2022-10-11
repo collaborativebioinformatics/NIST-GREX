@@ -56,7 +56,7 @@ Example output from script
 - `chm13_chr21_gemmap_l100_m2_e1.wig`
 
 Interested in bed files for now
-`chm13_chr21_gemmap_l100_m2_e1.bed`
+`chm13_chr21_gemmap_l100_m2_e1.bed` \
  Has all the region calls with their different mappability score
 
 	head chm13_chr21_gemmap_l100_m2_e1.bed
@@ -69,7 +69,7 @@ Interested in bed files for now
 	chr21	50	64	id-7	0.166667
 	chr21	64	65	id-8	0.333333
 
-`chm13_chr21_gemmap_l100_m2_e1_uniq.bed`
+`chm13_chr21_gemmap_l100_m2_e1_uniq.bed` \
 Only contains regions with unique mappability
 
 	head chm13_chr21_gemmap_l100_m2_e1_uniq.bed
@@ -108,10 +108,10 @@ Ran script like this
 	chm13_chr21_gemmap_l250_m0_e0_uniq.bed
 
 **Outputs we care about**
--   `chm13_21_nonunique_l*_m*_e*.bed.gz`  contains only regions that are “low mappability”, meaning they have other homologous regions in the reference genome for the given read length, number of mismatches, and number of indels.
+-   `chm13_21_nonunique_l*_m*_e*.bed.gz` contains only regions that are “low mappability”, meaning they have other homologous regions in the reference genome for the given read length, number of mismatches, and number of indels.
     -   low mappability regions for low stringency parameters: l100_m2_e1
     -   low mappability for high stringency parameters: l250_m0_e0
--   `chm13_chr21_lowmappabilityall.bed.gz`  and  `chm13_chr21_notinlowmappabilityall.bed.gz`  is a union (and non-overlapping complement, "notin") of low and high stringency short read mappability.
+-   `chm13_chr21_lowmappabilityall.bed.gz`  and  `chm13_chr21_notinlowmappabilityall.bed.gz` is a union (and non-overlapping complement, "notin") of low and high stringency short read mappability.
 *Explanations taken from original linked github*
 
 Quick look into `chm13_chr21_lowmappabilityall.bed.gz`
