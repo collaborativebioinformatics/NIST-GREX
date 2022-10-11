@@ -11,7 +11,7 @@ Outputs: Plots that show number of variants density and good cutoffs; code along
 
 ## Histogram
 
-![Histogram of genomic position of variants](./S7-adjacent-distribution/data/hist_chrs_variant_position.pdf)
+![Histogram of genomic position of variants](./S7-adjacent-distribution/data/hist_chrs_variant_position.jpg)
 
-![Histogram of genomic distance between variants](./S7-adjacent-distribution/data/hist_chrs_variant_distance.pdf)
+![Histogram of genomic distance between variants](./S7-adjacent-distribution/data/hist_chrs_variant_distance.jpg)
 
