@@ -6,7 +6,7 @@
 
 We have so far generated the bed files of CDS regions in T2T-CHM13v2.0 using the above input. This would enable us to:
 
-1. TODO: See the differences of coverage of CDS regions between GRCh38 and T2T-CHM13v2.0
+1. TODO: See the differences of coverage of CDS regions between GRCh38 and T2T-CHM13v2.0 by generating plots
 2. TODO: Compare variant calls for a control sample within these regions between GRCh38 and T2T-CHM13v2.0
 
 
