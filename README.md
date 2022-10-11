@@ -1,4 +1,8 @@
 # NIST Genomic features 
+
+Team: Bharati, Divya, Eddy, Nathan, Philippe and Pilar
+
+
 ## Giab Benchmarks
 
 Genome in a bottle 
