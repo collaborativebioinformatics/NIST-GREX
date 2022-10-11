@@ -5,8 +5,16 @@
    - percentage of A, C, G, Ts, and PerMatch were genearted programatically using TR region.
      
      This may not provide accurate measurement of these feature. Therfore decided to run Adam's pipeline to genearte these feature
+## Input TR aanotation file
+```
+% head -n3 adotto_TRannotations_v0.2.bed
+chr1    16682   16774   [{"chrom": "chr1", "start": 16712, "end": 16743, "period": 3.0, "copies": 10.7, "score": 56, "entropy": 0.95, "repeat": "TGG"}, {"chrom": "chr1", "start": 16712, "end": 16743, "period": 9.0, "copies": 3.6, "score": 69, "entropy": 0.95, "repeat": "TGGTGGGGG"}, {"chrom": "chr1", "start": 16713, "end": 16738, "period": 1.0, "copies": 26.0, "score": 28, "entropy": 0.85, "repeat": "G"}]
+chr1    19275   19473   [{"chrom": "chr1", "start": 19278, "end": 19286, "period": 4.0, "copies": 2.2, "score": 27, "entropy": 1.53, "repeat": "CGAG"}, {"chrom": "chr1", "start": 19305, "end": 19442, "period": 70.0, "copies": 2.0, "score": 377, "entropy": 1.65, "repeat": "TGAGAAGGCAGAGGCGCGACTGGGGTTCATGAGGAAAGGGAGGAGGAGGATGTGGGATGGTGGAGGGGTT"}, {"chrom": "chr1", "start": 19326, "end": 19388, "period": 18.0, "copies": 3.1, "score": 69, "entropy": 1.57, "repeat": "GGGGTTTGAGAAGGCAGA"}, {"chrom": "chr1", "start": 19335, "end": 19353, "period": 3.0, "copies": 6.3, "score": 30, "entropy": 1.17, "repeat": "GAG"}, {"chrom": "chr1", "start": 19412, "end": 19423, "period": 6.0, "copies": 2.0, "score": 36, "entropy": 0.65, "repeat": "GGGAGG"}]
+chr1    20798   20893   [{"chrom": "chr1", "start": 20797, "end": 20862, "period": 18.0, "copies": 3.2, "score": 108, "entropy": 1.67, "repeat": "GAGCCACCACAGAAAACA"}, {"chrom": "chr1", "start": 20832, "end": 20861, "period": 7.0, "copies": 3.7, "score": 40, "entropy": 1.4, "repeat": "ACAGAAA"}]
 
-## output bed file
+```
+
+## Output bed file
 
 ```
 % head adotto_TRannotations_v0.2_json_flat.bed
