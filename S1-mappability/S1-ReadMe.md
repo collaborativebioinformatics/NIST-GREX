@@ -33,7 +33,7 @@ https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/
 
 ### Upload first GEM script to directory
 https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/run_GEM_mappability_GRCh38.sh
-Renamed as gem_mappability.sh
+Renamed as gem_mappability.sh \
 What to alter in script:
 - Main variable paths/names
 - l, m, e parameters
