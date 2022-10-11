@@ -4,7 +4,10 @@ Last update: October 11, 2022 \
 Based on [GIAB CRCh38 Stratifications](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md)
 ## Goal: 
 Generate T2T-CHM13v2.0 stratification BED file similar to what exists for GRCh38. Goal is to end with BED file with regions of low mappability per chromosome based on two stringency levels.
-
+## Done:
+Low mappability files for chr21
+## To do:
+Whole genome
 
 ## Example on how to run on one chromosome
 
