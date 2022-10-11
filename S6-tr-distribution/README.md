@@ -25,4 +25,4 @@ Pipeline:
 
 # Results
 
-![image](data/chr_dist.pdf)
+![image](data/chr_dist.jpg)
