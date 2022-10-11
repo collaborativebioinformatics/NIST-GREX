@@ -28,3 +28,6 @@ The S8 pipeline maps the mean coverage for each variant in the .vcf file and out
 ```BASH
 python s8 coverage.per-base.bed.gz variants.vcf
 ```
+
+### Results 
+TODO
