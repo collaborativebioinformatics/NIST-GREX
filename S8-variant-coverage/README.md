@@ -31,8 +31,10 @@ python s8 coverage.per-base.bed.gz variants.vcf
 
 ### Results 
 
-Bam: HG002.hiseqx.pcr-free.40x.dedup.grch38.bam
-VCF: HG002.hiseqx.pcr-free.40x.deepvariant-v1.0.grch38.vcf.gz
+- Bam: HG002.hiseqx.pcr-free.40x.dedup.grch38.bam
+    - https://storage.googleapis.com/brain-genomics-public/research/sequencing/grch38/bam/hiseqx/wgs_pcr_free/40x/HG002.hiseqx.pcr-free.40x.dedup.grch38.bam 
+- VCF: HG002.hiseqx.pcr-free.40x.deepvariant-v1.0.grch38.vcf.gz
+    - https://storage.googleapis.com/brain-genomics-public/research/sequencing/grch38/vcf/hiseqx/wgs_pcr_free/40x/HG002.hiseqx.pcr-free.40x.deepvariant-v1.0.grch38.vcf.gz  
 Results for chr22:
 > **Note:** For this run, the coverage with binsize of 10 was used! (Update will follow)
 
