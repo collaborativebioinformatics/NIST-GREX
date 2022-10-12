@@ -63,4 +63,10 @@ This script file is created based on the GRCh38 GC Content Stratification BED fi
 ---
 RESULTS
 ---
-TODO
+| Stratifications  | # of Base Pairs |
+| ------------- | ------------- |
+| GC <15% | 11,095,587 |
+| GC >55% | 131,988,823 |
+| GC >85% | 818,337 |
+| GC <25% & >65% | 159,727,674 |
+| GC <30% & >55% | 718,326,443 |
