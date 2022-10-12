@@ -32,9 +32,15 @@
     - Modified the fai file to change accessions to chromosome numbers
   - Other minor changes
 
+### Results
+  1. Plot difference in coverage of CDS regions between CHM13v2.0 and GRCh38 (plots from Justin Wagner@NIST)
+  
+It is interesting to see both GRCH38 and CHM13v2.0 having the same CDS coverage. One possible reason is in how the length of the chromosomes was  evaluated for generating the CDS coverage across the two genomes - “the biggest difference is likely that the denominator changes because CHM13 adds new sequence (and we ignore N’s in 37 and 38)”
+
+ ![cds gene coverage](./CHM13_GRCh38refseq_plots.PNG)
+ 
 ### Next steps
 We have so far generated the bed files of CDS regions in T2T-CHM13v2.0 using the above input. This would enable us to:
-  1. TODO: See the differences of coverage of CDS regions between GRCh38 and T2T-CHM13v2.0 by generating plots
-  2. TODO: Compare variant calls for a control sample within these regions between GRCh38 and T2T-CHM13v2.0
+  1. TODO: Compare variant calls for a control sample within these regions between GRCh38 and T2T-CHM13v2.0
 
 
