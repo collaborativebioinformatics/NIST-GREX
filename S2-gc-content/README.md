@@ -15,7 +15,7 @@ Eddy Huang, Rice University, eh58@rice.edu
 
 ---
 
-Stratification Overview
+# STRATIFICATION OVERVIEW
 
 The goal of this task is to generate CHM 13 GC Content stratification files to be used as standard resource of bed files for use with GA4GH benchmarking tools to stratify true positive, false positive, and false negative variant calls into different ranges of GC contents.
 ---
@@ -26,6 +26,7 @@ The goal of this task is to generate CHM 13 GC Content stratification files to b
 TODO
 
 #### File Descriptions:
+
 TODO
 ---
 # METHODS
