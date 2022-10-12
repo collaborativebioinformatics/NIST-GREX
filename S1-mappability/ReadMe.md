@@ -139,7 +139,7 @@ All example chr21 files can be found in [data folder](https://github.com/collabo
 
 chr21 mappability files on IGV...
 ```
-![chr21_igv](https://github.com/collaborativebioinformatics/NIST-GREX/blob/main/S1-mappability/chr21_IGV.png "Chr21_IGV")
+![chr21_igv](https://github.com/collaborativebioinformatics/NIST-GREX/blob/main/S1-mappability/chr21_IGV.png?raw=true "Chr21_IGV")
 ```
 ## Running for whole genome
 Due to formatting of whole genome fasta chromosome names, we need to split up  [gem_mappability.sh](https://github.com/collaborativebioinformatics/NIST-genomic-features/blob/main/S1-mappability/code/gem_mappability.sh) 
