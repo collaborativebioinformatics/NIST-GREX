@@ -1,6 +1,7 @@
-# NIST Genomic features 
+# NIST-GREX (Genome Reference EXploration)
 
-Team: Bharati, Divya, Eddy, Nathan, Philippe and Pilar
+
+Team: Bharati, Divya, Eddy, Nathan, Sina, Philippe and Pilar
 
 
 ## Giab Benchmarks
@@ -39,6 +40,9 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 
 ![Flowchart](./doc/img/Flowchart.drawio.png)
 
+## Implementation details
+[**NIST**-**G**enome **R**eference **EX**ploration (NIST-GREX)](https://docs.google.com/presentation/d/1KqM5kEXQqNWBLLoTsDG2Iis9es5YUiVx3iPwwufggmE/edit?usp=sharing)
+
 ## Tasks
 ### Stratification BED file generation
 | No. |Task  | Responsible Person | Link|
@@ -46,7 +50,6 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 |S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|[S1](./S1-mappability)|
 |S2. | **GC content for the CHM13v2** | Eddy|[S2](./S2-gc-content)|
 |S3. | **Gene coding sequence for CHM13v2** | Divya|[S3](./S3-gene-coding)|
-|S4. | **Lift over Other Difficult regions to CHM13v2** ||[S4](./S4-other-difficult)|
 
 ### Feature engineering
 | No. |Task  | Responsible Person | Link|
