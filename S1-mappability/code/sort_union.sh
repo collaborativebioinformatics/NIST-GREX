@@ -12,10 +12,10 @@
 module load samtools bedtools
 
 ## Global variables
-BENCHROOT=/path/to/sv_hackathon/chr21/
-BEDTOOLSGENOME=/path/to/sv_hackathon/chr21/chm13_chr21_onlychr.genome
-GENOMEBED=/path/to/sv_hackathon/chr21/chm13_chr21.bed
-
+BENCHROOT=/path/to/sv_hackathon/
+BEDTOOLSGENOME=/path/to/sv_hackathon/chm13_chr21_onlychr.genome
+GENOMEBED=/path/to/sv_hackathon/chm13_chr21.bed
+ID=chr21
 
 
 ## Generating BAM
