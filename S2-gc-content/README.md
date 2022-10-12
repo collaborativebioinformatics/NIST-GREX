@@ -2,12 +2,12 @@ This CHM13V2.0-GCcontent-README.md file was generated on 20221012 by Eddy Huang.
 
 ---
 
-#GENERAL INFORMATION
+# GENERAL INFORMATION
 <hr./>
-####Title of Dataset:
+#### Title of Dataset:
 CHM13v2.0 GC Content Stratification BED files
 
-####Running Environment
+#### Running Environment
 seqtk version-1.3-r106, bedtools v2.27.1, tabix v1.9
 
 ####Dataset Contact(s):
@@ -20,23 +20,23 @@ Stratification Overview
 TODO
 ---
 
-#DATA & FILE OVERVIEW
+# DATA & FILE OVERVIEW
 <hr./>
-####File List:
+#### File List:
 TODO
 
-####File Descriptions:
+#### File Descriptions:
 TODO
 ---
-#METHODS
+# METHODS
 <hr./>
 TODO
 ---
-#OPERATIONS
+# OPERATIONS
 <hr./>
 TODO
 ---
-#RESULTS
+# RESULTS
 <hr./>
 TODO
 ---
