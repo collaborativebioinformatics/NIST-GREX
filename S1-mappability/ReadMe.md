@@ -2,6 +2,7 @@
 Pilar Alvarez Jerez \
 Last update: October 12, 2022 \
 Based on [GIAB CRCh38 Stratifications](https://github.com/genome-in-a-bottle/genome-stratifications/blob/master/GRCh38/mappability/GRCh38-mappability-README.md)
+All the following code can also be found in Github [code folder](https://github.com/collaborativebioinformatics/NIST-GREX/tree/main/S1-mappability/code)
 ## Goal: 
 Generate T2T-CHM13v2.0 stratification BED file similar to what exists for GRCh38. Goal is to end with BED file with regions of low mappability per chromosome based on two stringency levels.
 ## Done:
@@ -96,12 +97,12 @@ Renamed [sort_union.sh](https://github.com/collaborativebioinformatics/NIST-geno
 
 Creating files needed for script...
 
-	# Creating bed file
+	# Creating bed file from reference
 	awk 'BEGIN {FS="\t"}; {print $1 FS "0" FS $2}' \
 	$MAIN/sv_hackathon/chm13_chr21.fa.gz.fai > $MAIN/sv_hackathon/chm13_chr21.bed
 	head $MAIN/sv_hackathon/chm13_chr21.bed
 	
-	#Creating gennome file
+	#Creating genome file from reference
 	awk '{FS="\t"};{print $1 FS $3}' \
 	$MAIN/sv_hackathon/chm13_chr21.bed > $MAIN/sv_hackathon/chm13_chr21_onlychr.genome
 	head $MAIN/sv_hackathon/chm13_chr21_onlychr.genome
@@ -109,7 +110,7 @@ Creating files needed for script...
 Ran script like this
 
 	sbatch --mem=100g --cpus-per-task=4 \
-	--mail-type=ALL --time=12:00:00 union_chr21_test.sh  \
+	--mail-type=ALL --time=12:00:00 sort_union.sh  \
 	chm13_chr21_gemmap_l100_m2_e1_uniq.bed \
 	chm13_chr21_gemmap_l250_m0_e0_uniq.bed
 
@@ -138,9 +139,11 @@ Quick look into `chm13_chr21_lowmappabilityall.bed.gz`
 All example chr21 files can be found in [data folder](https://github.com/collaborativebioinformatics/NIST-genomic-features/tree/main/S1-mappability/data)
 
 chr21 mappability files on IGV...
-```
-![chr21_igv](https://github.com/collaborativebioinformatics/NIST-GREX/blob/main/S1-mappability/chr21_IGV.png?raw=true "Chr21_IGV")
-```
+
+<p align="center">
+  <img width="400" height="300" src="chr21_IGV.png">
+</p>
+
 ## Running for whole genome
 Due to formatting of whole genome fasta chromosome names, we need to split up  [gem_mappability.sh](https://github.com/collaborativebioinformatics/NIST-genomic-features/blob/main/S1-mappability/code/gem_mappability.sh) 
 into two.
@@ -229,7 +232,7 @@ Once whole genome is done, we can create plots to visualize  low mappability reg
 Ran script like this
 
 	sbatch --mem=100g --cpus-per-task=4 \ 
-	--mail-type=ALL --time=12:00:00 union_chr21_test.sh \ 
+	--mail-type=ALL --time=12:00:00 sort_union.sh \ 
 	chm13_gemmap_l100_m2_e1_uniq.bed \ 
 	chm13_gemmap_l250_m0_e0_uniq.bed
 
