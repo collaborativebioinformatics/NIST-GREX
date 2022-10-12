@@ -140,8 +140,8 @@ All example chr21 files can be found in [data folder](https://github.com/collabo
 
 chr21 mappability files on IGV...
 
-<p align="center">
-  <img width="400" height="300" src="chr21_IGV.png">
+<p align="left">
+  <img width="900" height="500" src="chr21_IGV.png">
 </p>
 
 ## Running for whole genome
