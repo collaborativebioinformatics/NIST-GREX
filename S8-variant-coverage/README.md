@@ -42,5 +42,5 @@ python s8 coverage.per-base.bed.gz variants.vcf
 Results for sample 1 on chr22:
 > **Note:** For this run, the coverage with binsize of 10 was used! (Update will follow)
 
-![coverage for variant](./img/mean_coverage_grch38_covbin_10.png)
+![coverage for variant](./img/HG002-GRCh38-Hiseqx-40X Chr 6 and 18.png)
 
