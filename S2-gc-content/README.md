@@ -3,7 +3,7 @@ This CHM13V2.0-GCcontent-README.md file was generated on 20221012 by Eddy Huang.
 ---
 
 # GENERAL INFORMATION
-<hr./>
+
 #### Title of Dataset:
 CHM13v2.0 GC Content Stratification BED files
 
@@ -21,7 +21,7 @@ TODO
 ---
 
 # DATA & FILE OVERVIEW
-<hr./>
+
 #### File List:
 TODO
 
@@ -29,14 +29,14 @@ TODO
 TODO
 ---
 # METHODS
-<hr./>
+
 TODO
 ---
 # OPERATIONS
-<hr./>
+
 TODO
 ---
 # RESULTS
-<hr./>
+
 TODO
 ---
