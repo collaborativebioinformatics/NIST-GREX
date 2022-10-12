@@ -112,6 +112,6 @@ if __name__ == '__main__':
     df = pd.DataFrame(data=[], columns=["a"])
     x = df.a.mean()
 
-    s8 = S8(binsize=10)  # 10 for testing
+    s8 = S8()
     s8.get_coverage_for_variant(mosdepth_file=r"./data/coverage_chr22_only.bed",
                                 vcf_file=r"./data/HG002.hiseqx.grch38_chr22.vcf")
