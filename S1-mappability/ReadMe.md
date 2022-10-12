@@ -6,8 +6,8 @@ All the following code can also be found in Github [code folder](https://github.
 ## Goal: 
 Generate T2T-CHM13v2.0 stratification BED file similar to what exists for GRCh38. Goal is to end with BED file with regions of low mappability per chromosome based on two stringency levels.
 ## Done:
-Generated all final mappability files for chr21.
-Generated all final mappability files for whole genome CHM13.
+Generated all final mappability files for chr21 \
+Generated all final mappability files for whole genome CHM13
 ## To do:
 Plot mappability for better visualization
 
