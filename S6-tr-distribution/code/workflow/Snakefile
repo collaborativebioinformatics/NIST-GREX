@@ -52,12 +52,9 @@ rule make_plots:
     input:
         rules.intersect_regions.output
     output:
-        chr_dist = "results/plots/chr_dist.pdf",
-        chr_hist = "results/plots/chr_hist.pdf",
-        sd = "results/plots/chr_sd.pdf",
-        med = "results/plots/chr_med.pdf",
-        max = "results/plots/chr_max.pdf",
-        grouped = "results/plots/grouped.pdf"
+        summary = "results/plots/summary.png",
+        simple = "results/plots/chr_hist.png",
+        complex = "results/plots/simple.png",
     conda:
         "envs/tidyverse.yml"
     script:
