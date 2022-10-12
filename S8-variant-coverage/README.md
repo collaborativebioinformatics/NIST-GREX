@@ -40,5 +40,6 @@ python s8 coverage.per-base.bed.gz variants.vcf
 
 
 Results for sample HG002-GRCh38-Hiseqx-40X: Chr 6 and 18:
-![coverage for variant](./img/HG002-GRCh38-Hiseqx-40X Chr 6 and 18.png)
+
+![coverage for variant](./img/HG002-GRCh38-Hiseqx-40X-Chr-6-and-18.png)
 
