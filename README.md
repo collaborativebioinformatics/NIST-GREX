@@ -1,3 +1,4 @@
+![](./doc/img/NIST-GREX.png)
 # NIST-GREX (Genome Reference EXploration)
 
 
