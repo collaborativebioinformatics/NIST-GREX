@@ -39,7 +39,6 @@ python s8 coverage.per-base.bed.gz variants.vcf
     - https://storage.googleapis.com/brain-genomics-public/research/sequencing/grch38/vcf/hiseqx/wgs_pcr_free/40x/HG002.hiseqx.pcr-free.40x.deepvariant-v1.0.grch38.vcf.gz  
 
 
-Results for sample HG002-GRCh38-Hiseqx-40X: Chr 6 and 18:
+Results for sample HG002-GRCh38-Hiseqx-40X: Chr 1,6 and 18:
 
-![coverage for variant](./img/HG002-GRCh38-Hiseqx-40X_Chr 1_6_18.png)
 
