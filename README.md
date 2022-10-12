@@ -38,10 +38,7 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 
 ## Flowchart 
 
-![Flowchart](./doc/img/Flowchart.drawio.png)
-
-## Implementation details 
-[**NIST**-**G**enome **R**eference **EX**ploration (NIST-GREX) slides](https://docs.google.com/presentation/d/1KqM5kEXQqNWBLLoTsDG2Iis9es5YUiVx3iPwwufggmE/edit?usp=sharing)
+![Flowchart](./doc/img/nist_grex_diagram.png)
 
 ## Tasks
 ### Stratification BED file generation
@@ -62,3 +59,6 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 |S6. | **Distribution of variants in Tandem repeats and homopolymer** | Nathan|[S6](./S6-tr-distribution)|
 |S7. | **Distribution of adjacent variants** | Sina| [S7](./S7-adjacent-distribution)|
 |S8. | **Coverage of variants from a bam file** | Philippe| [S8](./S8-variant-coverage) |
+
+### Implementation details 
+[**NIST**-**G**enome **R**eference **EX**ploration (NIST-GREX) slides](https://docs.google.com/presentation/d/1KqM5kEXQqNWBLLoTsDG2Iis9es5YUiVx3iPwwufggmE/edit?usp=sharing)
