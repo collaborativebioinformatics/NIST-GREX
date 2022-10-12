@@ -1,14 +1,42 @@
-# GC content
+This CHM13V2.0-GCcontent-README.md file was generated on 20221012 by Eddy Huang.
 
-```
+---
 
-seqtk gc -f 0.55 -l 100 /home/dnanexus/chm13v2.0.fa  > /home/dnanexus/l100_gc55.bed
+#GENERAL INFORMATION
+<hr./>
+####Title of Dataset:
+CHM13v2.0 GC Content Stratification BED files
 
-seqtk gc -f 0.6 -l 100 /home/dnanexus/chm13v2.0.fa  > /home/dnanexus/l100_gc60.bed
+####Running Environment
+seqtk version-1.3-r106, bedtools v2.27.1, tabix v1.9
 
-seqtk gc -f 0.65 -l 100 /home/dnanexus/chm13v2.0.fa  > /home/dnanexus/l100_gc65.bed
+####Dataset Contact(s):
+Eddy Huang, Rice University, eh58@rice.edu
 
-seqtk gc -f 0.7 -l 100 /home/dnanexus/chm13v2.0.fa  > /home/dnanexus/l100_gc70.bed
+---
 
+Stratification Overview
+<hr./>
+TODO
+---
 
-```
+#DATA & FILE OVERVIEW
+<hr./>
+####File List:
+TODO
+
+####File Descriptions:
+TODO
+---
+#METHODS
+<hr./>
+TODO
+---
+#OPERATIONS
+<hr./>
+TODO
+---
+#RESULTS
+<hr./>
+TODO
+---
