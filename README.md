@@ -39,6 +39,9 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 
 ![Flowchart](./doc/img/Flowchart.drawio.png)
 
+## Implementation details
+[**NIST**-**G**enome **R**eference **EX**ploration (NIST-GREX)](https://docs.google.com/presentation/d/1KqM5kEXQqNWBLLoTsDG2Iis9es5YUiVx3iPwwufggmE/edit?usp=sharing)
+
 ## Tasks
 ### Stratification BED file generation
 | No. |Task  | Responsible Person | Link|
