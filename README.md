@@ -1,6 +1,7 @@
-# NIST Genomic features 
+# NIST-GREX (Genome Reference EXploration)
 
-Team: Bharati, Divya, Eddy, Nathan, Philippe and Pilar
+
+Team: Bharati, Divya, Eddy, Nathan, Sina, Philippe and Pilar
 
 
 ## Giab Benchmarks
