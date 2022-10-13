@@ -19,7 +19,7 @@ For the extraction of the coverage Mosdepth is bing used.
 For the coverage extraction mosdepth is being used. In this example the coverage is being calculated for each basepair (bp), the binsize of 10bp and a quality of above 20. The output will be used for S8 pipeline.
 
 ```BASH
-mosdepth -b 10 -x -t 12 -Q 20 ./coverage ./sequence.bam
+mosdepth -n -b 1 -x -t 12 -Q 20 ./coverage ./sequence.bam
 ```
 
 ### S8
