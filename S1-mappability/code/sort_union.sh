@@ -24,11 +24,11 @@ function sort_bed(){
 	BEDBASE=${1%%.*}
 	local OUTBED=${BEDBASE}.sort.bed.gz
 
-	grep 	-e "$(printf '^chr[0-9XY]\t')" -e "$(printf '^chr[12][0-9]\t')" ${INBED} |\
-		sed 's/^chr//;s/^X	/23	/;s/^Y	/24	/;s/^MT	/25	/'  |\
+	grep 	-e "$(printf '^chr[0-9XYM]\t')" -e "$(printf '^chr[12][0-9]\t')" ${INBED} |\
+		sed 's/^chr//;s/^X	/23	/;s/^Y	/24	/;s/^M	/25	/'  |\
 		awk '$1<26' |\
 		sort -k1,1n -k2,2n |\
-		sed 's/^23/X/;s/^24/Y/;s/^25/MT/;s/^/chr/' |\
+		sed 's/^23/X/;s/^24/Y/;s/^25/M/;s/^/chr/' |\
 	 	bgzip -c > ${OUTBED}
 	echo "${OUTBED}"
 }
