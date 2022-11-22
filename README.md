@@ -48,6 +48,8 @@ The stratification files can also be downloaded via the [GIAB genome stratificat
 |S1. | **Mappability for CHM13v2.0 reference genome** | Pilar|[S1](./S1-mappability)|
 |S2. | **GC content for the CHM13v2** | Eddy|[S2](./S2-gc-content)|
 |S3. | **Gene coding sequence for CHM13v2** | Divya|[S3](./S3-gene-coding)|
+|S4. | **Other difficult regions for CHM13v2** | Rajarshi|[S4](./S4-OtherDifficult)|
+
 
 ### Feature engineering
 | No. |Task  | Responsible Person | Link|
