@@ -1,4 +1,6 @@
+name: s6-hackathon-tr-bedtools
 channels:
   - bioconda
 dependencies:
   - bedtools
+  - bcftools

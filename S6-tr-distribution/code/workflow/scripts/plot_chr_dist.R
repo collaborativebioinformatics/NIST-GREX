@@ -1,4 +1,5 @@
 library(tidyverse)
+library(ggpubr)
 
 read_bed <- function(path) {
     readr::read_tsv(path,
@@ -8,18 +9,19 @@ read_bed <- function(path) {
                     col_types = cols("chrom" = "c",
                                      "vcf_chrom" = "c",
                                      .default = "d")) %>%
-        filter(!chrom %in% c("chrX", "chrY")) %>%
-        mutate(chrom = as.integer(str_replace(chrom, "chr", ""))) %>%
-               ## start = start / 1e6,
-               ## end = end / 1e6) %>%
-        mutate(class = case_when(is.na(vcf_chrom) ~ NA_character_,
-                                 vcf_end - vcf_start == 1 & vcf_len == 0 ~ "SNPs",
-                                 vcf_len == 0 ~ "Other",
-                                 abs(vcf_len) < 3 ~ "INDEL2s",
-                                 abs(vcf_len) < 50 ~ "INDEL49s",
-                                 TRUE ~ "SVs") %>%
-                   factor()) %>%
-        select(-vcf_chrom)
+      filter(!chrom %in% c("chrX", "chrY")) %>%
+      mutate(chrom = as.integer(str_replace(chrom, "chr", ""))) %>%
+      ## start = start / 1e6,
+      ## end = end / 1e6) %>%
+      # TODO figure out "Other" if there are more than 1k ish
+      mutate(class = case_when(is.na(vcf_chrom) ~ NA_character_,
+                               vcf_end - vcf_start == 1 & vcf_len == 0 ~ "SNV",
+                               vcf_len == 0 ~ "Other",
+                               abs(vcf_len) < 3 ~ "INDEL2",
+                               abs(vcf_len) < 50 ~ "INDEL49",
+                               TRUE ~ "SV") %>%
+               factor()) %>%
+      select(-vcf_chrom)
 }
 
 summarize_len <- function(df) {
@@ -29,7 +31,8 @@ summarize_len <- function(df) {
                   mean = mean(abs(vcf_len)),
                   sd = sd(abs(vcf_len)),
                   max = max(abs(vcf_len)),
-                  min = min(abs(vcf_len)))
+                  min = min(abs(vcf_len)),
+                  groups = "drop")
 }
 
 ## group_hits <- function(df) {
@@ -133,7 +136,7 @@ sout <- snakemake@output
 
 rep1 <- df_pos %>%
     group_by(chrom, start, end) %>%
-    summarize(n = n()) %>%
+    summarize(n = n(), .groups = "drop") %>%
     ungroup() %>%
     filter(n == 1) %>%
     select(-n) %>%
@@ -141,20 +144,24 @@ rep1 <- df_pos %>%
 
 rep1_N <- rep1 %>%
     group_by(chrom) %>%
-    summarize(N = n())
+    summarize(N = n(), .groups = "drop")
 
 rep1_n <- rep1 %>%
     group_by(chrom, class) %>%
-    summarize(n = n()) %>%
+    summarize(n = n(), .groups = "drop") %>%
     left_join(rep1_N, by = "chrom") %>%
     mutate(frac = n / N)
 
 ## plot showing distribution of "simple" TRs is consistent across each chr
 
 rep1_n %>%
-    ggplot(aes(chrom, frac, fill = class)) +
-    geom_col() +
-    theme(legend.position = "bottom")
+  ggplot(aes(chrom, frac, fill = class)) +
+  geom_col() +
+  theme(legend.position = "bottom") +
+  labs(x = "Chromosome",
+       y = "Fraction of Repeats",
+       fill = "Class")
+
 ggsave(sout$simple, width = 4, height = 3)
 
 ## rep1_n %>%
@@ -163,11 +170,15 @@ ggsave(sout$simple, width = 4, height = 3)
 ##     View()
 
 rep1 %>%
-    mutate(replen = (end - start) * 1e6) %>%
-    ggplot(aes(replen, fill = class)) +
-    geom_histogram() +
-    scale_x_log10() +
-    theme(legend.position = "bottom")
+  mutate(replen = end - start) %>%
+  ggplot(aes(replen, fill = class)) +
+  geom_histogram(bins = 30) +
+  scale_x_log10() +
+  theme(legend.position = "bottom") +
+  labs(x = "Repeat Length (bp)",
+       y = "Repeat Count",
+       fill = "Class")
+
 ggsave(sout$complex, width = 4, height = 3)
 
 ## reps with more than one variant in them
@@ -227,8 +238,7 @@ ggsave(sout$complex, width = 4, height = 3)
 
 rep_complex <- df_pos %>%
     group_by(chrom, start, end) %>%
-    summarize(hits = if_else(n() > 1, "1+", "1")) %>%
-    ungroup()
+    summarize(hits = n(), .groups = "drop")
 
 ## rep0 %>%
 ##     select(chrom, start, end) %>%
@@ -237,10 +247,38 @@ rep_complex <- df_pos %>%
 ##     ggplot(aes(hits)) +
 ##     geom_bar()
 
-rep0 %>%
-    select(chrom, start, end) %>%
-    mutate(hits = "0") %>%
-    bind_rows(rep_complex) %>%
-    ggplot(aes(hits)) +
-    geom_bar()
-ggsave(sout$summary, width = 3, height = 3)
+all_reps <- rep0 %>%
+  select(chrom, start, end) %>%
+  mutate(hits = 0) %>%
+  bind_rows(rep_complex)
+
+all_reps_sum <- all_reps %>%
+  filter(hits <= 100) %>%
+  group_by(hits) %>%
+  summarize(count = n())
+
+upper <- 10 ^ ceiling(log10(max(all_reps_sum$count)))
+
+p100 <- all_reps_sum %>%
+  ggplot(aes(hits, count)) +
+  geom_point() +
+  scale_y_log10(limits = c(1, upper)) +
+  xlab(NULL) +
+  ylab("Repeat Count")
+
+p100p <- all_reps %>%
+  filter(hits > 100) %>%
+  summarize(count = n()) %>%
+  mutate(hits = ">100") %>%
+  ggplot(aes(hits, count)) +
+  geom_col() +
+  scale_y_log10(limits = c(1, upper)) +
+  xlab(NULL) +
+  ylab(NULL) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+
+ggarrange(p100, p100p, ncol = 2, widths = c(4, 1)) %>%
+  annotate_figure(bottom = "Variants/Repeat")
+
+ggsave(sout$summary, width = 6, height = 3)

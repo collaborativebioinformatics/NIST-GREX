@@ -8,28 +8,71 @@ rule download_strat:
         curl -sS -o {output} {params.url}
         """
 
-rule download_vcf:
+rule download_ref:
     output:
-        "resources/vcf/HG002_v4.2.1.vcf",
+        "resources/ref.ga.gz",
     params:
-        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz",
     shell:
         """
         curl -sS -o {output} {params.url}
         """
 
-rule vcf_to_bed:
-    input:
-        rules.download_vcf.output
+rule download_bench_vcf:
     output:
-        "results/vcf/HG002_v4.2.1.bed",
+        "resources/bench/HG002_v4.2.1.vcf",
+    params:
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/HPRC-HG002.cur.20211005/HPRC-cur.20211005-align2-GRCh38.dip.vcf.gz",
     shell:
         """
-        gunzip {input} -c | \
+        curl -sS {params.url} | gunzip -c > {output}
+        """
+
+rule download_bench_bed:
+    output:
+        "resources/bench/HG002_v4.2.1.bed",
+    params:
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/HPRC-HG002.cur.20211005/HPRC-cur.20211005-align2-GRCh38.dip.bed",
+    shell:
+        """
+        curl -sS -o {output} {params.url}
+        """
+
+rule fix_vcf_bases:
+    input:
+        rules.download_bench_vcf.output,
+    output:
+        "results/vcf/HG002_v4.2.1_fixed.vcf",
+    run:
+        with open(input[0], "r") as fi, open(output[0], "w+")  as fo:
+            ref_allele_set = set(["A", "G", "C", "T", "N"])
+            for i in fi:
+                if i.startswith("#"):
+                    fo.write(i)
+                else:
+                    split_line = i.split("\t")
+                    ref_allele_to_test = set(split_line[3])
+                    if ref_allele_set.issuperset(ref_allele_to_test):
+                        fo.write(i)
+
+rule vcf_to_bed:
+    input:
+        vcf=rules.fix_vcf_bases.output,
+        bed=rules.download_bench_bed.output,
+        fa=rules.download_ref.output,
+    output:
+        "results/vcf/HG002_v4.2.1.bed.gz",
+    conda:
+        "envs/bedtools.yml"
+    shell:
+        """
+        bcftools norm -m - {input.vcf} | \
+        bcftools norm --fasta-ref {input.fa} | \
+        bedtools intersect -a stdin -b {input.bed} | \
         grep -v '^#' | \
         cut -f1,2,4,5 | \
-        grep -v ',' | \
-        awk -F '\t' 'BEGIN{{OFS="\t"}} {{ print $1, $2, $2 + length($3), length($4) - length($3) }}' \
+        awk 'OFS="\t" {{ print $1, $2, $2 + length($3), length($4) - length($3) }}' | \
+        gzip -c \
         > {output}
         """
 
