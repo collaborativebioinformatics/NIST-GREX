@@ -4,3 +4,4 @@ channels:
 dependencies:
   - bedtools
   - bcftools
+  - samtools

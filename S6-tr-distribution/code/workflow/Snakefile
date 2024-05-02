@@ -12,31 +12,69 @@ rule download_ref:
     output:
         "resources/ref.ga.gz",
     params:
-        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz",
+        #url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz",
+        url="https://giab-data.s3.amazonaws.com/giab-test-data/GRCh38_GIABv3_no_alt_analysis_set_maskedGRC_decoys_MAP2K3_KMT2C_KCNJ18.fasta.gz"
+    conda:
+        "envs/bedtools.yml"
     shell:
         """
-        curl -sS -o {output} {params.url}
+        curl -sSfqL {params.url} > {output}
         """
+
+rule index_ref:
+    input:
+        rules.download_ref.output,
+    output:
+        rules.download_ref.output[0] + ".fai"
+    conda:
+        "envs/bedtools.yml"
+    shell:
+        "samtools faidx {input}"
 
 rule download_bench_vcf:
     output:
         "resources/bench/HG002_v4.2.1.vcf",
     params:
-        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/HPRC-HG002.cur.20211005/HPRC-cur.20211005-align2-GRCh38.dip.vcf.gz",
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/NIST_HG002_DraftBenchmark_defrabbV0.015-20240215/GRCh38_HG2-T2TQ100-V1.0.vcf.gz",
     shell:
         """
         curl -sS {params.url} | gunzip -c > {output}
         """
 
-rule download_bench_bed:
+rule download_bench_smvar_bed:
     output:
-        "resources/bench/HG002_v4.2.1.bed",
+        "resources/bench/HG002_smvar.bed",
     params:
-        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/HPRC-HG002.cur.20211005/HPRC-cur.20211005-align2-GRCh38.dip.bed",
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/NIST_HG002_DraftBenchmark_defrabbV0.015-20240215/GRCh38_HG2-T2TQ100-V1.0_smvar.benchmark.bed",
     shell:
         """
         curl -sS -o {output} {params.url}
         """
+
+rule download_bench_stvar_bed:
+    output:
+        "resources/bench/HG002_stvar.bed",
+    params:
+        url="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/NIST_HG002_DraftBenchmark_defrabbV0.015-20240215/GRCh38_HG2-T2TQ100-V1.0_stvar.benchmark.bed"
+    shell:
+        """
+        curl -sS -o {output} {params.url}
+        """
+
+rule intersect_bench_beds:
+    input:
+        smvar=rules.download_bench_smvar_bed.output,
+        stvar=rules.download_bench_stvar_bed.output,
+    output:
+        "results/bed/combined.bed"
+    conda:
+        "envs/bedtools.yml"
+    shell:
+        """
+        multiIntersectBed -i {input.smvar} {input.stvar} -sorted | \
+        mergeBed -i - -sorted > {output}
+        """
+        
 
 rule fix_vcf_bases:
     input:
@@ -58,8 +96,9 @@ rule fix_vcf_bases:
 rule vcf_to_bed:
     input:
         vcf=rules.fix_vcf_bases.output,
-        bed=rules.download_bench_bed.output,
+        bed=rules.intersect_bench_beds.output,
         fa=rules.download_ref.output,
+        _idx=rules.index_ref.output,
     output:
         "results/vcf/HG002_v4.2.1.bed.gz",
     conda:
@@ -67,6 +106,7 @@ rule vcf_to_bed:
     shell:
         """
         bcftools norm -m - {input.vcf} | \
+        awk '/^#/ || $5 ~ /^([ACGTN]+|\*|\.)$/' | \
         bcftools norm --fasta-ref {input.fa} | \
         bedtools intersect -a stdin -b {input.bed} | \
         grep -v '^#' | \
