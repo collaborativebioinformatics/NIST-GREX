@@ -1,6 +1,11 @@
 library(tidyverse)
 library(ggpubr)
 
+scientific_10 <- function(x) {
+  parse(text=sprintf("10^%d", log10(x)))
+  ## parse(text=gsub("e", " %*% 10^", scales::scientific_format()(x)))
+}
+
 read_bed <- function(path) {
     readr::read_tsv(path,
                     col_names = c("chrom", "start", "end", "vcf_chrom",
@@ -262,7 +267,7 @@ upper <- 10 ^ ceiling(log10(max(all_reps_sum$count)))
 p100 <- all_reps_sum %>%
   ggplot(aes(hits, count)) +
   geom_point() +
-  scale_y_log10(limits = c(1, upper)) +
+  scale_y_log10(limits = c(1, upper), label=scientific_10) +
   xlab(NULL) +
   ylab("Repeat Count")
 
