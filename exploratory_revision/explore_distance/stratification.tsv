@@ -1,0 +1,5 @@
+1-10	dist_start1.bed
+1e1-1e2	dist_start10.bed
+1e2-1e3	dist_start100.bed
+1e3-1e4	dist_start1000.bed
+1e4-	dist_start10000_rest.bed
